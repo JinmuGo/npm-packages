@@ -1,18 +1,25 @@
 {
-  "name": "jinmugo",
+  "name": "@jinmugo/npm-packages",
   "private": true,
+  "description": "Monorepo for Jinmu Go's npm packages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JinmuGo/npm-packages.git"
+  },
+  "type": "module",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "format": "turbo format",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "version": "changeset version"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.3",
-    "typescript": "5.5.4"
+    "@changesets/cli": "2.27.11",
+    "@jinmugo/eslint-config": "workspace:*",
+    "turbo": "^2.3.3"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=18"
   }
