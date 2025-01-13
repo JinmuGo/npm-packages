@@ -1,8 +1,36 @@
 {
-  "name": "@repo/typescript-config",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@jinmugo/typescript-config",
+  "version": "0.0.2",
+  "description": "Typescript configuration preset",
+  "keywords": [
+    "typescript",
+    "typescript-config",
+    "typescript-preset"
+  ],
+  "homepage": "https://github.com/JinmuGo/npm-packages/tree/main/packages/typescript-config",
+  "bugs": {
+    "url": "https://github.com/JinmuGo/npm-packages/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JinmuGo/npm-packages.git",
+    "directory": "packages/typescript-config"
+  },
   "license": "MIT",
+  "author": {
+    "name": "Jinmugo",
+    "url": "https://jinmu.me"
+  },
+  "type": "module",
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "library.json",
+    "react-internal.json"
+  ],
+  "scripts": {
+    "lint": "jinmugo-lint"
+  },
   "publishConfig": {
     "access": "public"
   }
