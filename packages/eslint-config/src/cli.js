@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+import { argv, exit } from "node:process";
+import ESLint from "eslint/use-at-your-own-risk";
+
+const { FlatESLint } = ESLint;
+
+async function main() {
+  // 1. Create an instance.
+  const fix = argv.includes("--fix");
+
+  const eslint = new FlatESLint({ fix });
+
+  // 2. Lint files.
+  const results = await eslint.lintFiles([
+    "./**/*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}",
+  ]);
+  const hasErrors = results.some(
+    ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0,
+  );
+
+  if (fix) {
+    await FlatESLint.outputFixes(results);
+  }
+
+  // 3. Format the results.
+  const formatter = await eslint.loadFormatter("stylish");
+  const resultText = formatter.format(results);
+
+  // 4. Output it.
+  if (resultText.length > 0) {
+    console.log(resultText);
+  } else {
+    console.log("✔ No ESLint warnings or errors");
+  }
+  exit(hasErrors > 0 ? 1 : 0);
+}
+
+main().catch((error) => {
+  console.error(error);
+  exit(1);
+});

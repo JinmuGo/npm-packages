@@ -1,24 +1,58 @@
 {
-  "name": "@repo/eslint-config",
-  "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "exports": {
-    "./base": "./base.js",
-    "./next-js": "./next.js",
-    "./react-internal": "./react-internal.js"
+  "name": "@jinmugo/eslint-config",
+  "version": "0.0.2",
+  "description": "ESLint configuration preset",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-preset"
+  ],
+  "homepage": "https://github.com/JinmuGo/npm-packages/tree/main/packages/eslint-config",
+  "bugs": {
+    "url": "https://github.com/JinmuGo/npm-packages/issues"
   },
-  "devDependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JinmuGo/npm-packages.git",
+    "directory": "packages/eslint-config"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jinmugo",
+    "url": "https://jinmu.me"
+  },
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "bin": {
+    "jinmugo-lint": "src/cli.js"
+  },
+  "scripts": {
+    "lint": "jinmugo-lint"
+  },
+  "dependencies": {
     "@eslint/js": "^9.17.0",
-    "@next/eslint-plugin-next": "^15.1.0",
-    "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@next/eslint-plugin-next": "^15",
+    "@typescript-eslint/eslint-plugin": "8.18.0",
+    "@typescript-eslint/parser": "8.18.0",
+    "eslint": "9.16.0",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-import": "2.31.0",
     "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-turbo": "^2.3.0",
-    "globals": "^15.12.0",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^8.15.0"
+    "eslint-plugin-package-json": "^0.19.0",
+    "eslint-plugin-perfectionist": "^4.4.0",
+    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "eslint-plugin-turbo": "2.3.3",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "globals": "15.13.0",
+    "typescript-eslint": "8.18.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
